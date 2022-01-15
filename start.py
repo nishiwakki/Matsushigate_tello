@@ -1,7 +1,7 @@
 # [INFOMATION]
-# execute.py
+# start.py
 # move Tello.
-# nishiwaki : 2021/11/13
+# nishiwaki : 2022/01/15
 
 # -*- coding: utf-8 -*-
 

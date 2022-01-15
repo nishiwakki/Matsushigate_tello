@@ -1,7 +1,7 @@
 # [INFOMATION]
 # Tello_api.py
 # define some functions related to Tello.
-# nishiwaki : 2021/12/12
+# nishiwaki : 2022/01/15
 # 
 # [PREFERENCE]
 # OpenCV: VideoCapture Class Reference
@@ -13,7 +13,8 @@
 
 import socket
 import cv2
-from time import sleep
+from datetime import datetime
+from time import sleep, strftime
 from math import ceil
 
 class Drone():
@@ -29,7 +30,8 @@ class Drone():
     IP_VS_RECV = '0.0.0.0' # '127.0.0.1'
     PT_VS_RECV = 11111
     # Other
-    OUTPUT = 'image.jpg'
+    PATH = 'pictures/'
+    FORMAT = '%Y%m%d_%H%M%S.jpg'
 
     #---------------------------------------
     # Constructor
@@ -124,15 +126,15 @@ class Drone():
 
     # Take a picture
     def picture(self):
+        filename = Drone.PATH + \
+                        datetime.now().strftime(Drone.FORMAT)
         self.streamon()
         cap = cv2.VideoCapture('udp://' + Drone.IP_VS_RECV + \
                                     ':' + str(Drone.PT_VS_RECV))
         while True:
             ret, frame = cap.read()
             if ret:
-                cv2.imwrite(Drone.OUTPUT, frame)
+                cv2.imwrite(filename, frame)
                 break
-            else:
-                sleep(0.3)
         cap.release()
         self.streamoff()
