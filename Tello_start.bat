@@ -2,4 +2,4 @@
 
 rem This batchfile should be placed on desktop
 
-py execute.py
+py start.py
