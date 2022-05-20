@@ -5,7 +5,7 @@
 
 # -*- coding: utf-8 -*-
 
-from Tello_api import Drone
+from samples.Tello_api import Drone
 
 def action():
     d = Drone()
