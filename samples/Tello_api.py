@@ -31,7 +31,7 @@ class Drone():
     IP_VS_RECV = '0.0.0.0' # '127.0.0.1'
     PT_VS_RECV = 11111
     # Other
-    PATH = 'pictures/'
+    PATH = '../pictures/'
     FORMAT = '%Y%m%d_%H%M%S.jpg'
 
     #---------------------------------------
